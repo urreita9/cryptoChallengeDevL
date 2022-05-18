@@ -1,3 +1,4 @@
+import android.os.Bundle;
 package com.cryptochallengeurrea;
 
 import com.facebook.react.ReactActivity;
@@ -13,6 +14,10 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "cryptoChallengeUrrea";
+  }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
