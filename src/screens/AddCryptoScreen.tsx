@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 
-export const AddCryptoScreen = () => {
+export const AddCryptoScreen: React.FC = () => {
   return (
     <View>
-      <Text>AddCryptoScreen</Text>
+      <Text>Hola mundo</Text>
+      <TouchableOpacity>
+        <Text>Add</Text>
+      </TouchableOpacity>
     </View>
   );
 };
