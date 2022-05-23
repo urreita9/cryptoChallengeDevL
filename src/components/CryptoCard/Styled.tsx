@@ -1,5 +1,9 @@
 import styled from 'styled-components/native';
 
+interface Right {
+  right: boolean;
+}
+
 export const CryptoCardContainer = styled.View`
   //   padding-top: 30px;
   //   padding-bottom: 30px;
@@ -9,7 +13,7 @@ export const CryptoCardContainer = styled.View`
 export const DataContainer = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   //   background-color: red;
   width: 90%;
   margin: 0 auto;
@@ -22,13 +26,16 @@ export const DataContainer = styled.View`
 export const CryptoTextWrapper = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: 120px;
+  justify-content: space-between;
+  width: 150px;
 `;
 
 export const TextColumn = styled.View`
   height: 50px;
   justify-content: space-evenly;
+  align-items: ${({right}: Right) => (right ? 'flex-end' : 'flex-start')};
+  //   background-color: red;
+  flex: 0.9;
 `;
 
 export const TextBold = styled.Text`
@@ -38,5 +45,6 @@ export const TextBold = styled.Text`
 
 export const TendencyText = styled.View`
   flex-direction: row;
-  align-items: center;
+  align-items: right;
+  //   text-align: right;
 `;

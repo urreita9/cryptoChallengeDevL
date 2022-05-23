@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Crypto} from '../../features/crypto/cryptoSlice';
 import {Avatar} from '../CryptoListHeader/Styled';
 import {
   CryptoCardContainer,
@@ -11,7 +12,13 @@ import {
   TextColumn,
 } from './Styled';
 
-export const CryptoCard = () => {
+export const CryptoCard = ({
+  slug,
+  symbol,
+  price,
+  percent_change,
+  avatar,
+}: Crypto) => {
   return (
     <CryptoCardContainer>
       <DataContainer>
@@ -19,23 +26,23 @@ export const CryptoCard = () => {
           <View>
             <Avatar
               source={{
-                uri: 'https://avatars.githubusercontent.com/u/71611977?v=4',
+                uri: avatar,
               }}
             />
           </View>
-          <TextColumn>
-            <TextBold>Bitcoin</TextBold>
-            <Text>BTC</Text>
+          <TextColumn right={false}>
+            <TextBold>{slug}</TextBold>
+            <Text>{symbol}</Text>
           </TextColumn>
         </CryptoTextWrapper>
-        <TextColumn>
-          <TextBold>$ 7,215.68</TextBold>
+        <TextColumn right>
+          <TextBold>$ {price}</TextBold>
 
           <TendencyText>
             <Text>
               <Icon name="north-east" size={20} color="#2CC54E" />
             </Text>
-            <Text>1.82%</Text>
+            <Text>{percent_change}%</Text>
           </TendencyText>
         </TextColumn>
       </DataContainer>

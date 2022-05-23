@@ -1,7 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
+import cryptoSlice from '../features/crypto/cryptoSlice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {cryptoSlice},
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
