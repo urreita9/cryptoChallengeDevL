@@ -45,6 +45,6 @@ export const TextBold = styled.Text`
 
 export const TendencyText = styled.View`
   flex-direction: row;
-  align-items: right;
+  align-items: flex-end;
   //   text-align: right;
 `;
