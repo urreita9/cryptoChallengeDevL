@@ -1,5 +1,4 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
 import {Avatar, HeaderContainer, HeaderTitle} from './Styled';
 
 export const CryptoListStackHeader = () => {

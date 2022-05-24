@@ -23,3 +23,12 @@ export const AddCryptoButtonText = styled.Text`
   font-size: 20px;
   color: #31566b;
 `;
+
+export const NoCryptosSavedContainer = styled.View`
+  flex: 5;
+  align-items: center;
+  justify-content: center;
+`;
+export const NoCryptosText = styled.Text`
+  font-size: 20px;
+`;

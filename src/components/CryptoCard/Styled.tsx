@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
-interface Right {
-  right: boolean;
+interface Bool {
+  bool: boolean;
 }
 
 export const CryptoCardContainer = styled.View`
@@ -33,7 +33,7 @@ export const CryptoTextWrapper = styled.View`
 export const TextColumn = styled.View`
   height: 50px;
   justify-content: space-evenly;
-  align-items: ${({right}: Right) => (right ? 'flex-end' : 'flex-start')};
+  align-items: ${({bool}: Bool) => (bool ? 'flex-end' : 'flex-start')};
   //   background-color: red;
   flex: 0.9;
 `;
@@ -47,4 +47,8 @@ export const TendencyText = styled.View`
   flex-direction: row;
   align-items: flex-end;
   //   text-align: right;
+`;
+
+export const PercentageText = styled.Text`
+  color: ${({bool}: Bool) => (bool ? '#2CC54E' : '#FD483C')};
 `;

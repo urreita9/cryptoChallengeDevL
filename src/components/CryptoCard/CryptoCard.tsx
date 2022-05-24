@@ -10,6 +10,7 @@ import {
   TendencyText,
   TextBold,
   TextColumn,
+  PercentageText,
 } from './Styled';
 
 export const CryptoCard = ({
@@ -30,19 +31,26 @@ export const CryptoCard = ({
               }}
             />
           </View>
-          <TextColumn right={false}>
+          <TextColumn bool={false}>
             <TextBold>{slug}</TextBold>
             <Text>{symbol}</Text>
           </TextColumn>
         </CryptoTextWrapper>
-        <TextColumn right>
+        <TextColumn bool>
           <TextBold>$ {price}</TextBold>
 
           <TendencyText>
             <Text>
-              <Icon name="north-east" size={20} color="#2CC54E" />
+              {percent_change > 0 ? (
+                <Icon name={'north-east'} size={20} color="#2CC54E" />
+              ) : (
+                <Icon name={'south-west'} size={20} color="#FD483C" />
+              )}
             </Text>
-            <Text>{percent_change}%</Text>
+
+            <PercentageText bool={percent_change < 0 ? false : true}>
+              {percent_change < 0 ? Math.abs(percent_change) : percent_change}%
+            </PercentageText>
           </TendencyText>
         </TextColumn>
       </DataContainer>
