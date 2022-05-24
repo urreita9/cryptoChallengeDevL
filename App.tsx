@@ -13,9 +13,6 @@ const App = () => {
     <Provider store={store}>
       <NavigationContainer>
         <StackNavigator />
-        {/* <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Hello World!</Text>
-      </View> */}
       </NavigationContainer>
     </Provider>
   );
