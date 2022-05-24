@@ -14,8 +14,7 @@ import {
   NoCryptosSavedContainer,
   NoCryptosText,
 } from './Styled';
-import cryptoSlice, {setCryptos} from '../../features/crypto/cryptoSlice';
-import {Text} from 'react-native';
+import {setCryptos} from '../../features/crypto/cryptoSlice';
 
 interface Props extends StackScreenProps<any, any> {}
 
