@@ -3,19 +3,18 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {store} from './src/app/store';
 import {NavigationContainer} from '@react-navigation/native';
-
+import {theme} from './src/theme/Theme';
 import {StackNavigator} from './src/navigation/StackNavigator';
+import {ThemeProvider} from 'styled-components';
 
-// import {Text, View} from 'react-native';
-
-const App = () => {
-  return (
-    <Provider store={store}>
+const App = () => (
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StackNavigator />
       </NavigationContainer>
-    </Provider>
-  );
-};
+    </ThemeProvider>
+  </Provider>
+);
 
 export default App;

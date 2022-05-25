@@ -6,7 +6,6 @@ import {Avatar} from '../CryptoListHeader/Styled';
 import {
   CryptoCardContainer,
   CryptoTextWrapper,
-  DataContainer,
   TendencyText,
   TextBold,
   TextColumn,
@@ -19,41 +18,35 @@ export const CryptoCard = ({
   price,
   percent_change,
   avatar,
-}: Crypto) => {
-  return (
-    <CryptoCardContainer>
-      <DataContainer>
-        <CryptoTextWrapper>
-          <View>
-            <Avatar
-              source={{
-                uri: avatar,
-              }}
-            />
-          </View>
-          <TextColumn bool={false}>
-            <TextBold>{slug}</TextBold>
-            <Text>{symbol}</Text>
-          </TextColumn>
-        </CryptoTextWrapper>
-        <TextColumn bool>
-          <TextBold>$ {price}</TextBold>
-
-          <TendencyText>
-            <Text>
-              {percent_change > 0 ? (
-                <Icon name={'north-east'} size={20} color="#2CC54E" />
-              ) : (
-                <Icon name={'south-west'} size={20} color="#FD483C" />
-              )}
-            </Text>
-
-            <PercentageText bool={percent_change < 0 ? false : true}>
-              {percent_change < 0 ? Math.abs(percent_change) : percent_change}%
-            </PercentageText>
-          </TendencyText>
-        </TextColumn>
-      </DataContainer>
-    </CryptoCardContainer>
-  );
-};
+}: Crypto) => (
+  <CryptoCardContainer>
+    <CryptoTextWrapper>
+      <View>
+        <Avatar
+          source={{
+            uri: avatar,
+          }}
+        />
+      </View>
+      <TextColumn bool={false}>
+        <TextBold>{slug}</TextBold>
+        <Text>{symbol}</Text>
+      </TextColumn>
+    </CryptoTextWrapper>
+    <TextColumn bool>
+      <TextBold>$ {price}</TextBold>
+      <TendencyText>
+        <Text>
+          {percent_change > 0 ? (
+            <Icon name={'north-east'} size={20} color={} />
+          ) : (
+            <Icon name={'south-west'} size={20} color="#FD483C" />
+          )}
+        </Text>
+        <PercentageText bool={percent_change < 0 ? false : true}>
+          {percent_change < 0 ? Math.abs(percent_change) : percent_change}%
+        </PercentageText>
+      </TendencyText>
+    </TextColumn>
+  </CryptoCardContainer>
+);

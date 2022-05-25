@@ -15,13 +15,13 @@ import {
   NoCryptosText,
 } from './Styled';
 import {setCryptos} from '../../features/crypto/cryptoSlice';
+import {Screen} from '../../navigation/StackNavigator';
 
 interface Props extends StackScreenProps<any, any> {}
 
 export const CryptoListScreen = ({navigation}: Props) => {
   const {cryptoList, loading} = useAppSelector(state => state.cryptoSlice);
   const dispatch = useAppDispatch();
-
   const cryptoListMock = [
     {
       id: '1',
@@ -51,27 +51,22 @@ export const CryptoListScreen = ({navigation}: Props) => {
       percent_change: 0.19,
     },
   ];
-
+  const navigateTo = (screen: string) => navigation.navigate(screen);
   useEffect(() => {
     removeData();
     setData();
     getData();
   }, []);
-
   const setData = async () => {
     try {
       await AsyncStorage.setItem('cryptoList', JSON.stringify(cryptoListMock));
-      // await AsyncStorage.setItem('cryptoList', JSON.stringify([]));
-      console.log('SET');
     } catch (e) {
       console.log(e);
     }
   };
-
   const getData = async () => {
     try {
       const value = await AsyncStorage.getItem('cryptoList');
-
       if (value !== null) {
         dispatch(setCryptos(JSON.parse(value)));
       }
@@ -79,7 +74,6 @@ export const CryptoListScreen = ({navigation}: Props) => {
       console.log(e);
     }
   };
-
   const removeData = async () => {
     try {
       await AsyncStorage.removeItem('cryptoList');
@@ -89,11 +83,6 @@ export const CryptoListScreen = ({navigation}: Props) => {
   };
   return (
     <CyptoListScreenContainer>
-      {/* {loading && (
-        <NoCryptosSavedContainer>
-          <NoCryptosText>Loading</NoCryptosText>
-        </NoCryptosSavedContainer>
-      )} */}
       <CyptoListScrollableContainer>
         {cryptoList?.length ? (
           <CyptoListScrollView>
@@ -107,12 +96,9 @@ export const CryptoListScreen = ({navigation}: Props) => {
           </NoCryptosSavedContainer>
         )}
       </CyptoListScrollableContainer>
-
       <CyptoListAddContainer>
         <AddCryptoButton
-          onPress={() => {
-            navigation.navigate('AddCryptoScreen');
-          }}>
+          onPress={navigateTo.bind(this, Screen.ADD_CRYPTO_SCREEN)}>
           <AddCryptoButtonText>+ Add a Cryptocurrency</AddCryptoButtonText>
         </AddCryptoButton>
       </CyptoListAddContainer>
