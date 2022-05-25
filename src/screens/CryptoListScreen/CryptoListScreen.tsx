@@ -14,8 +14,11 @@ import {
   NoCryptosSavedContainer,
   NoCryptosText,
 } from './Styled';
+
 import {setCryptos} from '../../features/crypto/cryptoSlice';
 import {Screen} from '../../navigation/StackNavigator';
+
+
 
 interface Props extends StackScreenProps<any, any> {}
 
