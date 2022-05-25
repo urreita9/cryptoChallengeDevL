@@ -2,7 +2,6 @@ import {StackScreenProps} from '@react-navigation/stack';
 import React, {useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
-
 import {CryptoCard} from '../../components/CryptoCard/CryptoCard';
 import {
   AddCryptoButton,
@@ -17,8 +16,6 @@ import {
 
 import {setCryptos} from '../../features/crypto/cryptoSlice';
 import {Screen} from '../../navigation/StackNavigator';
-
-
 
 interface Props extends StackScreenProps<any, any> {}
 
